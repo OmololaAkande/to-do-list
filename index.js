@@ -21,40 +21,71 @@
     - the todo list must show the most recent first
  */
 
-    let todoContainer=document.getElementById('toDoContainer');
-    let addToDoButton=document.getElementById('addTODO');
-    let inputField = document.getElementById('inputField');
+   //  let todoContainer=document.getElementById('toDoContainer');
+   //  let addToDoButton=document.getElementById('addTODO');
+   //  let inputField = document.getElementById('inputField');
     
-    addToDoButton.addEventListener('click',function(){
-      let paragraph=document.createElement('p');
-      paragraph.innerHTML+='(document.querySelector("#newtask input").value) <button>delete</button>' ;
-      todoContainer.appendChild(paragraph);
+   //  addToDoButton.addEventListener('click',function(){
+   //    let paragraph=document.createElement('p');
+   //    paragraph.innerHTML=inputField.value ;
+   //    todoContainer.appendChild(paragraph);
+   //    inputField.value="" ;
       
-      inputField.value="" ;
-      
-    })
+   //  })
 
     
-// let todoList = [];
 
-// function addItem () {
-//   let localItems=JSON.parse(localStorage.getItem('localItem'))
-//   if(localItems === null){
-//     taskList =[]
-//   }
-//   else{
-//     tasklist = localItems;
-//   }
-//   taskList.push(inputVal.value)
-//   localStorage.setItem('localItem',JSON.stringify(taskList))
-  
-// }
+const inputVal=document.getElementsByClassName('inputVal')[0]
+console.log(inputVal);
+const addTaskBtn=document.getElementsByClassName('btn')[0]
+console.log(inputVal.value);
 
-// function editItem (item) {
+addTaskBtn.addEventListener('click',()=>{
+   if(inputVal.value.trim() !=0){
+      
+   let localItems=JSON.parse(localStorage.getItem('localItem'))
+   if(localItems === null){
+      taskList=[]
+   }else{
+      taskList=localItems;
+   }
+   taskList.unshift(inputVal.value)
+   localStorage.setItem('localItem',JSON.stringify(taskList))
+   inputVal.value="" 
 
-// }
+   }
+   showlist()
+})
 
-// function deleteItem (item) {
+function showlist(){
 
-// }
-// add.addEventListener('click',addItem)
+   let outPut = '';
+   let taskListShow= document.querySelector('.todoListItem')
+   let localItems=JSON.parse(localStorage.getItem('localItem'))
+   if(localItems === null){
+      taskList=[]
+   }else{
+      taskList=localItems;
+   }
+   taskList.forEach((data,index) => {
+outPut +=`
+<div class="todoList">
+          <p class="pText">${data}</p>
+          <button class="deleteTask" onClick="deleteItem(${index})">x</button>
+</div>`
+   });
+    taskListShow.innerHTML = outPut;
+}
+showlist()
+
+function deleteItem(index){
+   let localItems=JSON.parse(localStorage.getItem('localItem'))
+   taskList.splice(index,1)
+   localStorage.setItem('localItem',JSON.stringify(taskList))
+   showlist()
+}
+
+function clearTask(){
+localStorage.clear()
+showlist()
+}

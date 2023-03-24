@@ -1,136 +1,98 @@
 
-/* Basic Style */
-
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
 body {
-  background: #fff;
-  color: #333;
-  font-family: Lato, sans-serif;
-  background-color: skyblue;
+  background: #0e0c0c49;
+
 }
 
 .container {
-  display: block;
-  width: 500px;
-  margin: 10px auto 100px;
-  background-color: #fff;
-  padding: 0px 10px 10px 10px;
+  width: 350px;
+  height: 400px;
+  background: #0c0b0bc7;
+  position: absolute;
+  top: 20%;
+  left: 30%;
   border-radius: 10px;
+  margin:0 auto;
 }
 
-.new-task-container {
-  margin-top: 16px;
+.todoList{
   display: flex;
   justify-content: space-between;
-  gap: 4px;
+  margin: 10px;
+  align-items: center;
+  background: #fff;
+  padding: 5px;
+  border-bottom: 1px solid gray;
+  border-radius: 5px;
+  height: 40px;
+  box-shadow: 5px 5px rgb(0,0,1,0.5);
+  font-weight: bold;
+  flex-wrap: wrap;
+  width: 325px;
 }
 
-h2 {
+.deleteTask{
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
   text-align: center;
-  padding-top: 10px;
-  margin-bottom: 0px;
-}
-
-ul {
+  border-radius: 50%;
+  background: orangered;
+  color:#fff;
+  outline: none;
+  align-items: center;
   margin: 0;
   padding: 0;
 }
 
-li * {
-  float: left;
-}
-
-li,
-h3 {
-  clear: both;
-  list-style: none;
-}
-
-input,
-button {
-  outline: none;
-}
-
-button {
-  border: 0px;
-  color: white;
-  font-size: 16px;
-  font-family: Lato, sans-serif;
-  cursor: pointer;
-  padding: 8px;
-  border-radius: 8px;
-}
-
-
-
-button:hover {
-  color: #333;
-}
-
-/* Heading */
-
-h3,
-label[for="new-task"] {
-  color: #333;
-  font-weight: 700;
-  font-size: 15px;
-  border-bottom: 2px solid #333;
-  padding: 20px 0 10px;
-  margin: 0;
-  text-transform: uppercase;
-}
-
-input[type="text"] {
-  margin: 0;
-  font-size: 18px;
-  line-height: 18px;
-  height: 18px;
-  padding: 10px;
-  border: 1px solid #ddd;
+.pText{
   background: #fff;
-  border-radius: 6px;
-  font-family: Lato, sans-serif;
-  color: #888;
+  text-transform: capitalize;
 }
 
-input[type="text"]:focus {
-  color: #333;
-}
-
-/* New Task */
-
-label[for="new-task"] {
-  display: block;
-  margin: 0 0 20px;
-}
-
-#new-task {
-  width: 318px;
-}
-
-/* Task list */
-
-li {
-  overflow: hidden;
-  padding: 20px 0;
-  border-bottom: 1px solid #eee;
+.inputvalue{
   display: flex;
-  justify-content: space-between;
+  margin: 5px;
+  margin-bottom: 60px;
 }
 
-li > p {
-  font-size: 18px;
-  line-height: 20px;
-  width: 237px;
-  padding: 0 0 0 8px;
+.inputVal{
+  width: 250px;
+  height: 40px;
+  border-radius: 5px;
+  margin-right: 5px;
+  border:2px solid rgb(69,5,187);
 }
 
-li > .delete:hover {
-  color: #cf2323;
+.btn{
+  margin: 0 auto;
+  width: 100px;
+  background: #097d56;
+  color:#fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  outline-style: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px #03110c;
+  
 }
 
-#add-button {
-	background-color: aquamarine;
+.clearTask{
+  position: absolute;
+  bottom: 5px;
+   left:50px; 
+  background: orangered;
+  color: #fff;
+  width: 250px;
+  height: 35px;
+  border-radius: 5px;
+  text-transform: capitalize;
+  font-weight: bold;
+  cursor: pointer;
+  outline-style: none;
 }
-
-.delete-button {
-	background-color: red;}
